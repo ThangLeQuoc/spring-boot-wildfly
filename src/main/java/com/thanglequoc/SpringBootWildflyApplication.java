@@ -20,16 +20,3 @@ public class SpringBootWildflyApplication extends SpringBootServletInitializer {
 	return application.sources(SpringBootWildflyApplication.class);
     }
 }
-
-@RestController
-class GreetingController {
-    @RequestMapping("/")
-    String home() {
-	return "Now you see me !";
-    }
-
-    @RequestMapping("/hello/{name}")
-    String hello(@PathVariable String name) {
-	return "";
-    }
-}
