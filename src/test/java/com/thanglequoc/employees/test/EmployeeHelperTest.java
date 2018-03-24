@@ -22,18 +22,19 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.thanglequoc.employees.EmployeeDto;
 import com.thanglequoc.employees.EmployeeEntity;
+import com.thanglequoc.employees.EmployeeHelper;
 import com.thanglequoc.employees.EmployeeService;
 import com.thanglequoc.employees.Gender;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
-public class EmployeeServiceTest {
+public class EmployeeHelperTest {
     
     @SpyBean
     ModelMapper modelMapper;
     
     @Autowired
-    EmployeeService employeeService;
+    EmployeeHelper employeeHelper;
     
     private SimpleDateFormat dateTimeFormat;
     
@@ -49,7 +50,7 @@ public class EmployeeServiceTest {
     public void should_ReturnListOfEmployeeDto_When_ConvertFromListOfEmployeeEntity() throws ParseException {
 	List<EmployeeEntity> employees = prepareSampleListOfEmployeeEntities();
 	
-	List<EmployeeDto> actualEmployeeDtos = employeeService.convertToDtos(employees);
+	List<EmployeeDto> actualEmployeeDtos = employeeHelper.convertToDtos(employees);
 	
 	assertTrue(CollectionUtils.isNotEmpty(actualEmployeeDtos));
 	List<EmployeeDto> expectedEmployeeDtos = prepareSampleListOfEmployeeDto();
@@ -101,8 +102,5 @@ public class EmployeeServiceTest {
 	
 	return Arrays.asList(expectedEmployee1, expectedEmployee2);
     }
-    
-    
-    
     
 }

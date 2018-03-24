@@ -23,8 +23,8 @@ public class EmployeeController {
     }
     
     @RequestMapping(value="/{id}" ,method = RequestMethod.GET)
-    public String getEmployee(@PathVariable String id) {
-	return "This should get employee with id: "+id;
+    public EmployeeDto getEmployee(@PathVariable Long id) {
+	return employeeService.getEmployeeById(id);
     }
-    
+       
 }

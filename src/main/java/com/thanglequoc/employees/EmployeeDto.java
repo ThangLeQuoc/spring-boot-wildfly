@@ -3,6 +3,8 @@ package com.thanglequoc.employees;
 import java.util.Date;
 
 public class EmployeeDto {
+    
+    private Long empNo;
     private String firstName;
     private String lastName;
     private Gender gender;
@@ -38,6 +40,13 @@ public class EmployeeDto {
     }
     public void setHireDate(Date hireDate) {
         this.hireDate = hireDate;
+    }
+    
+    public Long getEmpNo() {
+	return empNo;
+    }
+    public void setEmpNo(Long empNo) {
+	this.empNo = empNo;
     }
 
 }
