@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/employees")
-public class EmployeesController {
+public class EmployeeController {
     
     @Autowired
     private EmployeeService employeeService;
     
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public List<EmployeeDto> getEmployees() {
-	return null;
+    public List<EmployeeDto> getEmployees() {	
+	return employeeService.getAllEmployees();
     }
     
     @RequestMapping(value="/{id}" ,method = RequestMethod.GET)
