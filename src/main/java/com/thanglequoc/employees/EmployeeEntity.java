@@ -18,6 +18,8 @@ import javax.persistence.TemporalType;
 @Table(name = "employees")
 public class EmployeeEntity implements Serializable {
     
+    private static final long serialVersionUID = 4784590722822087105L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "emp_no")
