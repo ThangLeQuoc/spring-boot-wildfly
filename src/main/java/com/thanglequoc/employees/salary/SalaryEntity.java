@@ -11,7 +11,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "salaries")
-public class EmployeeSalary implements Serializable{
+public class SalaryEntity implements Serializable{
 
     private static final long serialVersionUID = 4000746798616871524L;
     
