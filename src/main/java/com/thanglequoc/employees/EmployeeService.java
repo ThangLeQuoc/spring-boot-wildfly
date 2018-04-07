@@ -1,6 +1,5 @@
 package com.thanglequoc.employees;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +42,8 @@ public class EmployeeService  {
 	return employeeRepository.findOne(employeeId).getSalaries();
     }
     
-    public List<SalaryDto> getSalaryByEmployee(Long employeeId) {
+    public SalaryDto getSalaryByEmployee(Long employeeId) {
 	List<SalaryEntity> salariesOfEmployee = getSalaryEntityByEmployee(employeeId);
-	return salaryHelper.convertToDtos(salariesOfEmployee);
+	return salaryHelper.reduceSalariesByEmployee(salariesOfEmployee).get(0);
     }
 }

@@ -31,7 +31,7 @@ public class EmployeeController {
     }
     
     @RequestMapping(value = "/{id}/salaries", method = RequestMethod.GET)
-    public List<SalaryDto> getSalaryOfEmployee(@PathVariable Long id) {
+    public SalaryDto getSalaryOfEmployee(@PathVariable Long id) {
 	return employeeService.getSalaryByEmployee(id);
     }
        

@@ -1,37 +1,31 @@
 package com.thanglequoc.employees.salary;
 
 import java.util.Date;
+import java.util.List;
 
 public class SalaryDto {
     
-    private String employeeId;
-    private int salary;
-    private Date fromDate;
-    private Date toDate;
+    private Long employeeId;
+    private List<DetailSalaryDto> salaries;
     
-    public String getEmployeeId() {
+    public SalaryDto() {}
+    
+    public SalaryDto(Long employeeId) {
+	this.employeeId = employeeId;
+    } 
+    public Long getEmployeeId() {
         return employeeId;
     }
-    public int getSalary() {
-        return salary;
-    }
-    public Date getFromDate() {
-        return fromDate;
-    }
-    public Date getToDate() {
-        return toDate;
-    }
-    public void setEmployeeId(String employeeId) {
+
+    public void setEmployeeId(Long employeeId) {
         this.employeeId = employeeId;
     }
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-    public void setFromDate(Date fromDate) {
-        this.fromDate = fromDate;
-    }
-    public void setToDate(Date toDate) {
-        this.toDate = toDate;
+    
+    public List<DetailSalaryDto> getSalaries() {
+	return salaries;
     }
     
+    public void setSalaries(List<DetailSalaryDto> salaries) {
+	this.salaries = salaries;
+    }
 }
