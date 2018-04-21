@@ -3,6 +3,8 @@ package com.thanglequoc.employees;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.thanglequoc.employees.salary.SalaryDto;
@@ -20,6 +22,11 @@ public class EmployeeService  {
     
     @Autowired
     private SalaryHelper salaryHelper;
+    
+    public Page<EmployeeDto> getAllEmployeesPages(Pageable pageable) {
+	Page<EmployeeEntity> result = employeeRepository.findAll(pageable);
+	return result.map(employeeHelper::convertToDto);
+    }
   
     public List<EmployeeEntity> getAllEmployeesEntity() {
 	return employeeRepository.findAll();
