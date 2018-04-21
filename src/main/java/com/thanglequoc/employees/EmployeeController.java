@@ -18,9 +18,7 @@ import com.thanglequoc.employees.salary.SalaryEntity;
 @RestController
 @RequestMapping("/employees")
 public class EmployeeController {
-    
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    
+        
     
     @Autowired
     private EmployeeService employeeService;
