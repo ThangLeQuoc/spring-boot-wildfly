@@ -17,15 +17,18 @@ An employee has _working contract_ with departments in company. He has _salary r
 ## Department Management Specifications
 - User can add/update departments
 - User can click on department to view more details (list of employees, manager)
-- User can add an available employee to the selected department, condition of an available employee stated above
-- User can remove current employee from the department
+- User can add an available employee to the selected department and assign his title, condition of an available employee stated above. Employee's title in a department is mandatory
+- User can remove current employee from the department. Upon removal, the working period of employee is updated.
 - User can change department manager
 - User can browse history of department
 - These should be a selection from a date to a date to view history of departments
 - A historical report of department should include employee name, their working period in department,
 separate by each section, each section is a title of employee (e.g: Manager, Engineer, etc.)
 ## Employee Management Specifications
-
+- User can add/edit information of employee
+- Basic employee information includes: birth date, first name, last name, gender, and hire date
+- User can set the salary of employee. After saving, a salary record for employee is generated, starting with salary and start of the moment the salary was recorded. On the upcomming salary change, the _to date_ time of salary record is updated, and a new salary record will be created.
+-
 ## Data Model
 ## What I need:
 
