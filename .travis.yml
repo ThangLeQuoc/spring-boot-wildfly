@@ -1,0 +1,16 @@
+language: java
+sudo: false
+install: true
+addons:
+  sonarcloud:
+    organization: "thanglequoc-github"
+    token:
+      secure: "qXlHrySja4NLSL6ctz/OfdB0eWB90NzkjT9V+/z+sVYLt3JVB4BW8zzbvx3pKcolS/poLwY/RDGejAKrjLWXV3eMGIAxY+ZUZo95sXo69turiqG6+6BdqRyZ64F1L4wyx8apFlh9VaQJ51DkxnjPmanfOyQvUP25bHGQs2TjtX8FjT7KUzni8DGJ8L0QrD1dknK9WnnmafuADeXojzecM3tSzspvAxEQgHNijax9F24Zje3nRTuBw1pwiBObUZH8L3tYjyW4ODS0puxCo3NbFA7l/rg904SZx/hX12B1sTDjVRnawnlsojX6sTmePjXDS8pan7/kw5bXZBfh5dniMVDD06qSKMaXc6aVRSr+30UnnbAHiM7E1q5ZruoLEVU09NUODKQdubTktXO3yUeqSozFIE8dJqlr2Dj0lbHm4ktu7YlvnIzUg/91C7d1Abxewz39xH5TJoR3cW15BScd8ZHkW9tzvb38bKCSYLlzhQ8851fMWujNgvZUwqCnVm00TXsGOvFIMnB2DXITIAggKo5VuYEHENO3A2NziaDHQ7F9WRDW1C14zG8X+44z53siYZviGGHSgStyGGPItaHRrHSOdNC5Gc/OZxnf95jQIus/pkiUlabtXy22Xviw9IUzLex0TACawPFLIPlydZZr0QwC8V/ztaqmit+vzGDpxcw="
+jdk:
+  - oraclejdk8
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'

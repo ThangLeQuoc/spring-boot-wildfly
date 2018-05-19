@@ -2,7 +2,9 @@ package com.thanglequoc.employees;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,9 +12,13 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.thanglequoc.employees.salary.SalaryEntity;
 
 @Entity
 @Table(name = "employees")
@@ -42,81 +48,60 @@ public class EmployeeEntity implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column(name = "hire_date")
     private Date hireDate;
+    
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "emp_no")
+    private List<SalaryEntity> salaries;
 
-    /**
-     * @return the id
-     */
     public Long getId() {
         return id;
     }
 
-    /**
-     * @return the birthDate
-     */
     public Date getBirthDate() {
         return birthDate;
     }
 
-    /**
-     * @return the firstName
-     */
     public String getFirstName() {
         return firstName;
     }
 
-    /**
-     * @return the lastName
-     */
     public String getLastName() {
         return lastName;
     }
 
-    /**
-     * @return the gender
-     */
     public Gender getGender() {
         return gender;
     }
 
-    /**
-     * @return the hireDate
-     */
     public Date getHireDate() {
         return hireDate;
     }
 
-    /**
-     * @param birthDate the birthDate to set
-     */
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
-    /**
-     * @param firstName the firstName to set
-     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    /**
-     * @param lastName the lastName to set
-     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    /**
-     * @param gender the gender to set
-     */
     public void setGender(Gender gender) {
         this.gender = gender;
     }
 
-    /**
-     * @param hireDate the hireDate to set
-     */
     public void setHireDate(Date hireDate) {
         this.hireDate = hireDate;
+    }
+    
+    public List<SalaryEntity> getSalaries() {
+	return salaries;
+    }
+    
+    public void setSalaries(List<SalaryEntity> salaries) {
+	this.salaries = salaries;
     }
 }
