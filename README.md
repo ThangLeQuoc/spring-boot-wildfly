@@ -28,11 +28,8 @@ separate by each section, each section is a title of employee (e.g: Manager, Eng
 - User can add/edit information of employee
 - Basic employee information includes: birth date, first name, last name, gender, and hire date
 - User can set the salary of employee. After saving, a salary record for employee is generated, starting with salary and start of the moment the salary was recorded. On the upcomming salary change, the _to date_ time of salary record is updated, and a new salary record will be created.
--
-## Data Model
-## What I need:
 
 # Technical Specifications
+## Data Model
 
 ## Environment Infrastructure
-
