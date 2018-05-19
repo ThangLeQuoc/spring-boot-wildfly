@@ -8,26 +8,27 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "departments")
 public class DepartmentEntity {
-    
+
     @Id
-    @Column(name="dept_no")
+    @Column(name = "dept_no")
     private String number;
-    
+
     @Column(name = "dept_name")
     private String name;
-    
+
     public String getNumber() {
-	return number;
+        return number;
     }
-    
+
     public void setNumber(String number) {
-	this.number = number;
+        this.number = number;
     }
-    
+
     public String getName() {
-	return name;
+        return name;
     }
+
     public void setName(String name) {
-	this.name = name;
+        this.name = name;
     }
 }

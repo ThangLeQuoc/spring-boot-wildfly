@@ -7,29 +7,29 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DepartmentService {
-    
+
     @Autowired
     DepartmentHelper departmentHelper;
-    
+
     @Autowired
     DepartmentRepository departmentRepository;
-    
+
     public List<DepartmentEntity> getAllDepartmentEntity() {
-	return departmentRepository.findAll();
+        return departmentRepository.findAll();
     }
-    
+
     public DepartmentEntity getDepartmentEntityById(String id) {
-	return departmentRepository.findOne(id);
+        return departmentRepository.findOne(id);
     }
-    
+
     public List<DepartmentDto> getAllDepartments() {
-	List<DepartmentEntity> departmentEntities = getAllDepartmentEntity();
-	return departmentHelper.convertToDtos(departmentEntities);
+        List<DepartmentEntity> departmentEntities = getAllDepartmentEntity();
+        return departmentHelper.convertToDtos(departmentEntities);
     }
-    
+
     public DepartmentDto getDepartmentById(String id) {
-	DepartmentEntity departmentEntity = getDepartmentEntityById(id);
-	return departmentHelper.convertToDto(departmentEntity);
-    } 
-    
+        DepartmentEntity departmentEntity = getDepartmentEntityById(id);
+        return departmentHelper.convertToDto(departmentEntity);
+    }
+
 }

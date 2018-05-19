@@ -23,32 +23,32 @@ import com.thanglequoc.employees.salary.SalaryEntity;
 @Entity
 @Table(name = "employees")
 public class EmployeeEntity implements Serializable {
-    
+
     private static final long serialVersionUID = 4784590722822087105L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "emp_no")
     private Long id;
-    
+
     @Temporal(TemporalType.DATE)
     @Column(name = "birth_date")
     private Date birthDate;
-    
+
     @Column(name = "first_name", nullable = false)
     private String firstName;
-    
+
     @Column(name = "last_name", nullable = false)
     private String lastName;
-    
+
     @Enumerated(EnumType.STRING)
     @Column(name = "gender", nullable = false)
     private Gender gender;
-    
+
     @Temporal(TemporalType.DATE)
     @Column(name = "hire_date")
     private Date hireDate;
-    
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "emp_no")
     private List<SalaryEntity> salaries;
@@ -96,12 +96,12 @@ public class EmployeeEntity implements Serializable {
     public void setHireDate(Date hireDate) {
         this.hireDate = hireDate;
     }
-    
+
     public List<SalaryEntity> getSalaries() {
-	return salaries;
+        return salaries;
     }
-    
+
     public void setSalaries(List<SalaryEntity> salaries) {
-	this.salaries = salaries;
+        this.salaries = salaries;
     }
 }

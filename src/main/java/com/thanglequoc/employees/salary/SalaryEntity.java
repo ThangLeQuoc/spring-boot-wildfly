@@ -14,22 +14,22 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "salaries")
 @IdClass(SalaryPK.class)
-public class SalaryEntity implements Serializable{
+public class SalaryEntity implements Serializable {
 
     private static final long serialVersionUID = 4000746798616871524L;
-    
+
     @Id
-    @Column(name= "emp_no")
+    @Column(name = "emp_no")
     private Long employeeId;
-    
+
     @Column(name = "salary")
     private int salary;
-    
+
     @Id
     @Column(name = "from_date")
     @Temporal(TemporalType.DATE)
     private Date fromDate;
-    
+
     @Column(name = "to_date")
     @Temporal(TemporalType.DATE)
     private Date toDate;
