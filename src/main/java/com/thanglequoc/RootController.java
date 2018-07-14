@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class RootController {
     @RequestMapping(method = RequestMethod.GET)
     public String entrySiteShowUp() {
-	return "Now you see our company";
+        return "Now you see our company";
     }
 }

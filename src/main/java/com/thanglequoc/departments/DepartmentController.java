@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/departments")
 public class DepartmentController {
-    
+
     @Autowired
     DepartmentService departmentService;
-    
+
     @GetMapping
     public List<DepartmentDto> getAllDepartments() {
-	return departmentService.getAllDepartments();
+        return departmentService.getAllDepartments();
     }
-    
+
     @GetMapping(path = "/{id}")
     public DepartmentDto getDepartmentById(@PathVariable String id) {
-	return departmentService.getDepartmentById(id);
+        return departmentService.getDepartmentById(id);
     }
 }
