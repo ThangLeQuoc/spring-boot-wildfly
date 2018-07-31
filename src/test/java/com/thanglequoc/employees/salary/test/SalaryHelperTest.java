@@ -19,7 +19,7 @@ import com.thanglequoc.employees.salary.SalaryDto;
 import com.thanglequoc.employees.salary.SalaryEntity;
 import com.thanglequoc.employees.salary.SalaryHelper;
 
-@SpringBootTest(classes = SpringRollApplication.class, webEnvironment = WebEnvironment.NONE)
+@SpringBootTest(classes = SpringRollApplication.class)
 @RunWith(SpringRunner.class)
 public class SalaryHelperTest {
 
