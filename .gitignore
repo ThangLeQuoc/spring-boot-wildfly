@@ -16,4 +16,5 @@ buildNumber.properties
 bin/
 .project
 META-INF/
+.springBeans
 
