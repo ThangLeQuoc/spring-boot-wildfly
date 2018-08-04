@@ -5,14 +5,14 @@ import java.util.Date;
 
 public class SalaryPK implements Serializable {
 
-    protected Long employeeId;
+    protected Long employee;
     protected Date fromDate;
 
     public SalaryPK() {
     }
 
-    public SalaryPK(Long employeeId, Date fromDate) {
-        this.employeeId = employeeId;
+    public SalaryPK(Long employee, Date fromDate) {
+        this.employee = employee;
         this.fromDate = fromDate;
     }
 

@@ -50,7 +50,8 @@ public class EmployeeService {
     }
 
     public SalaryDto getSalaryByEmployee(Long employeeId) {
-        List<SalaryEntity> salariesOfEmployee = getSalaryEntityByEmployee(employeeId);
+//        List<SalaryEntity> salariesOfEmployee = getSalaryEntityByEmployee(employeeId);
+        List<SalaryEntity> salariesOfEmployee = getEmployeeEntityById(employeeId).getSalaries();
         return salaryHelper.reduceSalariesByEmployee(salariesOfEmployee).get(0);
     }
 }
