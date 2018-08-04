@@ -38,23 +38,23 @@ public class SalaryHelper implements GenericModelMapper<SalaryEntity, SalaryDto>
 
         Map<Long, List<SalaryEntity>> salaryEntityMap = new HashMap<>();
         entities.stream().forEach(salary -> {
-            if (Objects.isNull(salaryEntityMap.get(salary.getEmployeeId()))) {
-                salaryEntityMap.put(salary.getEmployeeId(), new ArrayList<>());
+            if (Objects.isNull(salaryEntityMap.get(salary.getEmployee().getId()))) {
+                salaryEntityMap.put(salary.getEmployee().getId(), new ArrayList<>());
             }
-            salaryEntityMap.get(salary.getEmployeeId()).add(salary);
+            salaryEntityMap.get(salary.getEmployee().getId()).add(salary);
         });
 
         salaryEntityMap.forEach((employeeId, salariesEntities) -> {
-            salaries.add(cruchSalariesEntityOfEmployeeToSalaryDto(salariesEntities));
+            salaries.add(crunchSalariesEntityOfEmployeeToSalaryDto(salariesEntities));
         });
 
         return salaries;
     }
 
-    private SalaryDto cruchSalariesEntityOfEmployeeToSalaryDto(List<SalaryEntity> salaries) {
+    private SalaryDto crunchSalariesEntityOfEmployeeToSalaryDto(List<SalaryEntity> salaries) {
         if (CollectionUtils.isEmpty(salaries))
             throw new IllegalArgumentException();
-        SalaryDto salaryDto = new SalaryDto(salaries.get(0).getEmployeeId());
+        SalaryDto salaryDto = new SalaryDto(salaries.get(0).getEmployee().getId());
         List<DetailSalaryDto> detailSalaries = salaries.stream().map(salary -> {
             DetailSalaryDto detailSalary = new DetailSalaryDto();
             detailSalary.setSalary(salary.getSalary());

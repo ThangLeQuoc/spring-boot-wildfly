@@ -27,7 +27,7 @@ public class EmployeeEntity implements Serializable {
     private static final long serialVersionUID = 4784590722822087105L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "emp_no")
     private Long id;
 
@@ -49,9 +49,12 @@ public class EmployeeEntity implements Serializable {
     @Column(name = "hire_date")
     private Date hireDate;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "emp_no")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "employee")
     private List<SalaryEntity> salaries;
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getId() {
         return id;

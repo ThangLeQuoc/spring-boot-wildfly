@@ -5,11 +5,16 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.thanglequoc.employees.EmployeeEntity;
 
 @Entity
 @Table(name = "salaries")
@@ -18,10 +23,16 @@ public class SalaryEntity implements Serializable {
 
     private static final long serialVersionUID = 4000746798616871524L;
 
+//    @Id
+//    @Column(name = "emp_no")
+//    private Long employeeId;
+    
+    
     @Id
-    @Column(name = "emp_no")
-    private Long employeeId;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name= "emp_no")
+    private EmployeeEntity employee;
+    
     @Column(name = "salary")
     private int salary;
 
@@ -33,13 +44,9 @@ public class SalaryEntity implements Serializable {
     @Column(name = "to_date")
     @Temporal(TemporalType.DATE)
     private Date toDate;
-
+    
     public static long getSerialversionuid() {
         return serialVersionUID;
-    }
-
-    public Long getEmployeeId() {
-        return employeeId;
     }
 
     public int getSalary() {
@@ -54,10 +61,6 @@ public class SalaryEntity implements Serializable {
         return toDate;
     }
 
-    public void setEmployeeId(Long employeeId) {
-        this.employeeId = employeeId;
-    }
-
     public void setSalary(int salary) {
         this.salary = salary;
     }
@@ -68,6 +71,14 @@ public class SalaryEntity implements Serializable {
 
     public void setToDate(Date toDate) {
         this.toDate = toDate;
+    }
+    
+    public EmployeeEntity getEmployee() {
+        return employee;
+    }
+    
+    public void setEmployee(EmployeeEntity employee) {
+        this.employee = employee;
     }
 
 }
