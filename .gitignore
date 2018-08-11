@@ -17,4 +17,5 @@ bin/
 .project
 META-INF/
 .springBeans
+.idea/
 
