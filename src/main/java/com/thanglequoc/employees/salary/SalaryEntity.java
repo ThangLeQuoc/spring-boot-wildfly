@@ -23,11 +23,6 @@ public class SalaryEntity implements Serializable {
 
     private static final long serialVersionUID = 4000746798616871524L;
 
-//    @Id
-//    @Column(name = "emp_no")
-//    private Long employeeId;
-    
-    
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name= "emp_no")

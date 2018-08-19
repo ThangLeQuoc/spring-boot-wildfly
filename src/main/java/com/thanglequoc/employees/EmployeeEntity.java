@@ -19,6 +19,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.thanglequoc.employees.salary.SalaryEntity;
+import com.thanglequoc.employees.titles.EmployeeTitleEntity;
 
 @Entity
 @Table(name = "employees")
@@ -51,6 +52,9 @@ public class EmployeeEntity implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "employee")
     private List<SalaryEntity> salaries;
+    
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "employee")
+    private List<EmployeeTitleEntity> titles;
     
     public void setId(Long id) {
         this.id = id;
