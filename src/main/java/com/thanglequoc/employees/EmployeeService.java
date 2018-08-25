@@ -1,6 +1,7 @@
 package com.thanglequoc.employees;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,6 +11,10 @@ import org.springframework.stereotype.Service;
 import com.thanglequoc.employees.salary.SalaryDto;
 import com.thanglequoc.employees.salary.SalaryEntity;
 import com.thanglequoc.employees.salary.SalaryHelper;
+import com.thanglequoc.employees.titles.EmployeeTitleDto;
+import com.thanglequoc.employees.titles.EmployeeTitleEntity;
+import com.thanglequoc.employees.titles.TitleEntity;
+import com.thanglequoc.employees.titles.TitleMapper;
 
 @Service
 public class EmployeeService {
@@ -22,6 +27,7 @@ public class EmployeeService {
 
     @Autowired
     private SalaryHelper salaryHelper;
+    
 
     public Page<EmployeeDto> getAllEmployeesPages(Pageable pageable) {
         Page<EmployeeEntity> result = employeeRepository.findAll(pageable);
@@ -50,8 +56,17 @@ public class EmployeeService {
     }
 
     public SalaryDto getSalaryByEmployee(Long employeeId) {
-//        List<SalaryEntity> salariesOfEmployee = getSalaryEntityByEmployee(employeeId);
         List<SalaryEntity> salariesOfEmployee = getEmployeeEntityById(employeeId).getSalaries();
         return salaryHelper.reduceSalariesByEmployee(salariesOfEmployee).get(0);
+    }
+    
+    public List<EmployeeTitleEntity> getEmployeeTitleEntityByEmployee(Long employeeId) {
+        return employeeRepository.findOne(employeeId).getTitles();
+    }
+    
+    public List<EmployeeTitleDto> getEmployeeTitleByEmployee(Long employeeId) {
+        return this.getEmployeeTitleEntityByEmployee(employeeId).stream()
+                .map(TitleMapper::convertToDto)
+                .collect(Collectors.toList());
     }
 }

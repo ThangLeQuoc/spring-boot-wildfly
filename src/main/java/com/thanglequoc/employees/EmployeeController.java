@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.thanglequoc.employees.salary.SalaryDto;
+import com.thanglequoc.employees.titles.EmployeeTitleDto;
 
 @RestController
 @RequestMapping("/employees")
@@ -40,6 +41,11 @@ public class EmployeeController {
     @RequestMapping(value = "/{id}/salaries", method = RequestMethod.GET)
     public SalaryDto getSalaryOfEmployee(@PathVariable Long id) {
         return employeeService.getSalaryByEmployee(id);
+    }
+    
+    @GetMapping(value = "/{id}/titles")
+    public List<EmployeeTitleDto> getTitlesOfEmployee(@PathVariable("id") Long id) {
+        return employeeService.getEmployeeTitleByEmployee(id);
     }
 
 }

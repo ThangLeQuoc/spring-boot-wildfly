@@ -40,6 +40,10 @@ public class EmployeeTitleEntity {
     @Column(name = "to_date")
     @Temporal(TemporalType.DATE)
     private Date toDate;
+    
+    public EmployeeTitleEntity() {
+        
+    }
 
     public EmployeeTitleId getId() {
         return id;

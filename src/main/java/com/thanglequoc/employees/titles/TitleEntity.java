@@ -29,6 +29,10 @@ public class TitleEntity implements Serializable {
     @OneToMany(mappedBy = "title", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EmployeeTitleEntity> employeeTitle;
 
+    public TitleEntity() {
+    
+    }
+    
     public Long getId() {
         return id;
     }

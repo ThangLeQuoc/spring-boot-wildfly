@@ -56,6 +56,10 @@ public class EmployeeEntity implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "employee")
     private List<EmployeeTitleEntity> titles;
     
+    public EmployeeEntity() {
+        
+    }
+    
     public void setId(Long id) {
         this.id = id;
     }
@@ -110,5 +114,13 @@ public class EmployeeEntity implements Serializable {
 
     public void setSalaries(List<SalaryEntity> salaries) {
         this.salaries = salaries;
+    }
+    
+    public void setTitles(List<EmployeeTitleEntity> titles) {
+        this.titles = titles;
+    }
+    
+    public List<EmployeeTitleEntity> getTitles() {
+        return titles;
     }
 }

@@ -16,6 +16,10 @@ public class EmployeeTitleId implements Serializable {
 
     @Column(name = "title")
     private Long titleId;
+    
+    public EmployeeTitleId() {
+        
+    }
 
     public EmployeeTitleId(Long employeeId, Long titleId) {
         this.employeeId = employeeId;
